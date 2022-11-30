@@ -2,7 +2,6 @@
   "dependencies": {
     "budgetbakers-import": "^1.0.0",
     "dotenv": "^16.0.3",
-    "edenred-transactions": "^1.0.0",
-    "fs": "^0.0.1-security"
+    "edenred-transactions": "^1.0.0"
   }
 }

@@ -1,5 +1,5 @@
 require('dotenv').config();
-const fs = require('fs');
+const fs = require('node:fs');
 const edenred = require('edenred-transactions');
 const budgetbakers = require('budgetbakers-import');
 const edenredAuth = {
