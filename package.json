@@ -1,8 +1,8 @@
 {
     "dependencies": {
-        "budgetbakers-import": "^2.0.1",
+        "budgetbakers-import": "^2.0.2",
         "dotenv": "^16.0.3",
-        "edenred-transactions": "^1.1.0",
+        "edenred-transactions": "^1.1.1",
         "objects-to-csv": "^1.3.6"
     }
 }
