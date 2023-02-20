@@ -27,10 +27,10 @@ edenred.getTransactions(edenredAuth.host, edenredAuth.username, edenredAuth.pass
         if (!fs.existsSync(folder)) { fs.mkdirSync(folder); }
         const date = new Date(); 
         const timestamp = `${date.getFullYear()}-${(`0` + parseInt(date.getMonth()+1)).slice(-2)}-${(`0` + date.getDate()).slice(-2)}T${(`0` + date.getHours()).slice(-2)}-${(`0` + date.getMinutes()).slice(-2)}`;
-        const path = `${folder}/${timestamp}.csv`;        
+        const file = `${folder}/${timestamp}.csv`;        
         const csv = new ObjectsToCsv(object); 
-        await csv.toDisk(path);
+        await csv.toDisk(file);
 
-        return budgetbakers.uploadFile(budgetbakersAuth.username, budgetbakersAuth.password, path, true)
+        return budgetbakers.uploadFile(budgetbakersAuth.username, budgetbakersAuth.password, file, true)
     })
     .then(res => console.log(res));
