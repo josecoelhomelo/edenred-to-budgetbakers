@@ -2,7 +2,7 @@
     "dependencies": {
         "wallet-budgetbakers-import": "^3.0.0",
         "dotenv": "^16.0.3",
-        "edenred-transactions": "^1.1.1",
+        "edenred-transactions": "^1.1.2",
         "objects-to-csv": "^1.3.6"
     }
 }

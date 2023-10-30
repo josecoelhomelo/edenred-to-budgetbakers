@@ -30,7 +30,7 @@ edenred.getTransactions(edenredAuth.host, edenredAuth.username, edenredAuth.pass
         const timestamp = `${date.getFullYear()}-${(`0` + parseInt(date.getMonth()+1)).slice(-2)}-${(`0` + date.getDate()).slice(-2)}T${(`0` + date.getHours()).slice(-2)}-${(`0` + date.getMinutes()).slice(-2)}`;
         const file = `${folder}/${timestamp}.csv`;        
         const csv = new ObjectsToCsv(transactions); 
-        await csv.toDisk(file);     
+        await csv.toDisk(file);
         return wallet.uploadFile(walletInfo.username, walletInfo.password, file, walletInfo.importEmail, walletInfo.accountId);
     })
     .then(res => console.log(res));
