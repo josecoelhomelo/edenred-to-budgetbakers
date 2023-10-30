@@ -14,23 +14,21 @@ const budgetbakersAuth = {
 }
 edenred.getTransactions(edenredAuth.host, edenredAuth.username, edenredAuth.password)
     .then(async res => { 
-        const object = res.map(record => {
+        const transactions = res.map(record => {
             return {
                 date: record.transactionDate,
                 note: record.transactionName,
                 amount: record.amount >= 0 ? record.amount : 0,
                 expense: record.amount < 0 ? record.amount : 0
             }
-        });
-          
+        });          
         const folder = 'transactions'; 
         if (!fs.existsSync(folder)) { fs.mkdirSync(folder); }
         const date = new Date(); 
         const timestamp = `${date.getFullYear()}-${(`0` + parseInt(date.getMonth()+1)).slice(-2)}-${(`0` + date.getDate()).slice(-2)}T${(`0` + date.getHours()).slice(-2)}-${(`0` + date.getMinutes()).slice(-2)}`;
         const file = `${folder}/${timestamp}.csv`;        
-        const csv = new ObjectsToCsv(object); 
+        const csv = new ObjectsToCsv(transactions); 
         await csv.toDisk(file);
-
-        return budgetbakers.uploadFile(budgetbakersAuth.username, budgetbakersAuth.password, file, true)
+        return budgetbakers.uploadFile(budgetbakersAuth.username, budgetbakersAuth.password, file, true);
     })
     .then(res => console.log(res));
