@@ -14,3 +14,5 @@ WALLET_PASSWORD =
 WALLET_IMPORT_EMAIL =
 WALLET_ACCOUNT_ID = 
 ```
+
+Only new/unexisting records will be considered.
