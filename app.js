@@ -18,7 +18,7 @@ edenred.getTransactions(edenredAuth.host, edenredAuth.username, edenredAuth.pass
     .then(async res => { 
         const transactions = res.map(record => {
             return {
-                date: record.transactionDate,
+                date: new Date(record.transactionDate).toISOString(),
                 note: record.transactionName,
                 amount: record.amount >= 0 ? record.amount : 0,
                 expense: record.amount < 0 ? record.amount : 0
