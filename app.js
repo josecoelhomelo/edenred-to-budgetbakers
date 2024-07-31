@@ -28,7 +28,7 @@ try {
         }
     });
     const path = edenred.saveTransactions(transactions);
-    const result = await wallet.uploadFile(walletInfo.username, walletAuth.password, path, walletAuth.importEmail, walletAuth.accountId);
+    const result = await wallet.uploadFile(walletAuth.username, walletAuth.password, path, walletAuth.importEmail, walletAuth.accountId);
     console.log(result);
 } catch(err) {
     console.error(err);
