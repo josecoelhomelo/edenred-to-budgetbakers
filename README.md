@@ -18,4 +18,5 @@ Finally, run the file with Node.js:
 ```
 node app.js
 ```
+In order to validate the login process, you will be prompted to enter the 2FA code that is sent to your e-mail.\
 Only new/unexisting records will be considered.
