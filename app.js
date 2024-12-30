@@ -15,7 +15,7 @@ const walletAuth = {
 try {
     await edenred.login({
         endpoint: edenredAuth.endpoint,
-        email: edenredAuth.username,
+        user: edenredAuth.username,
         password: edenredAuth.password
     });
     let transactions = await edenred.getTransactions();
