@@ -2,17 +2,17 @@ This app retrieves transactions from your Edenred's card using module [edenred-t
 > **NOTE:** Only tested with the Portuguese version (https://www.myedenred.pt)
 
 # Usage
-Create a `.env` file and fill the required information:
+Create a `.env` file and fill the required information.
 ```env
-EDENRED_ENDPOINT =
 EDENRED_USER =
 EDENRED_PASSWORD =
 WALLET_USER =
 WALLET_PASSWORD =
 WALLET_IMPORT_EMAIL =
-WALLET_ACCOUNT_ID = 
 ```
-You can retrieve the import e-mail in your Wallet's account settings and the Account Id through the web interface - it's located in the URL.
+You may also specify `EDENRED_ENDPOINT` if you are not using the Portuguese version and `WALLET_ACCOUNT_ID` if you have multiple accounts in Wallet.
+
+You can retrieve the import e-mail in Wallet's account settings and the account identification in the URL, when navigating to the account detail.
 
 Finally, run the file with Node.js:
 ```
