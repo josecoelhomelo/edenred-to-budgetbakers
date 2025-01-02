@@ -3,19 +3,21 @@ import edenred from 'edenred-transactions';
 import wallet from 'wallet-budgetbakers-import';
 const edenredAuth = {
     endpoint: process.env.EDENRED_ENDPOINT,
-    username: process.env.EDENRED_USER,
+    user: process.env.EDENRED_USER,
     password: process.env.EDENRED_PASSWORD
 }
 const walletAuth = {
-    username: process.env.WALLET_USER,
-    password: process.env.WALLET_PASSWORD,
-    importEmail: process.env.WALLET_IMPORT_EMAIL,
+    user: process.env.WALLET_USER,
+    password: process.env.WALLET_PASSWORD
+}
+const walletConfig = {    
+    email: process.env.WALLET_IMPORT_EMAIL,
     accountId: process.env.WALLET_ACCOUNT_ID
 }
 try {
     await edenred.login({
         endpoint: edenredAuth.endpoint,
-        user: edenredAuth.username,
+        user: edenredAuth.user,
         password: edenredAuth.password
     });
     let transactions = await edenred.getTransactions();
@@ -28,7 +30,12 @@ try {
         }
     });
     const path = edenred.saveTransactions(transactions);
-    const result = await wallet.uploadFile(walletAuth.username, walletAuth.password, path, walletAuth.importEmail, walletAuth.accountId);
+    await wallet.login(walletAuth.user, walletAuth.password);
+    const result = await wallet.importFile({
+        file: path,
+        email: walletConfig.email,
+        accountId: walletConfig.accountId
+    });
     console.log(result);
 } catch(err) {
     console.error(err);
