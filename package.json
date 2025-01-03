@@ -3,6 +3,6 @@
     "dependencies": {
         "dotenv": "^16.4.7",
         "edenred-transactions": "^3.2.3",
-        "wallet-budgetbakers-import": "^4.1.0"
+        "wallet-budgetbakers-import": "^4.2.0"
     }
 }
