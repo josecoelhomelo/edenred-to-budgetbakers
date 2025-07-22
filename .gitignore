@@ -1,4 +1,4 @@
-node_modules
-transactions
+/node_modules
+/transactions
 .env
 package-lock.json
