@@ -7,11 +7,8 @@ const edenredAuth = {
     password: process.env.EDENRED_PASSWORD
 }
 const walletAuth = {
-    user: process.env.WALLET_USER,
-    password: process.env.WALLET_PASSWORD
-}
-const walletConfig = {    
-    email: process.env.WALLET_IMPORT_EMAIL,
+    email: process.env.WALLET_EMAIL,
+    importEmail: process.env.WALLET_IMPORT_EMAIL,
     accountId: process.env.WALLET_ACCOUNT_ID
 }
 try {
@@ -25,18 +22,18 @@ try {
         return {
             date: new Date(record.transactionDate).toISOString(),
             note: record.transactionName,
-            amount: record.amount >= 0 ? record.amount : 0,
+            income: record.amount >= 0 ? record.amount : 0,
             expense: record.amount < 0 ? record.amount : 0
         }
     });
     const path = edenred.saveTransactions(transactions);
-    await wallet.login(walletAuth.user, walletAuth.password);
-    const result = await wallet.importFile({
+    await wallet.login(walletAuth.email);
+    const importResult = await wallet.importFile({
         file: path,
-        email: walletConfig.email,
-        accountId: walletConfig.accountId
+        importEmail: walletAuth.importEmail,
+        accountId: walletAuth.accountId
     });
-    console.log(result);
+    console.log(importResult);
 } catch(err) {
     console.error(err);
 }

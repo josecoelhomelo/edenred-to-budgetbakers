@@ -2,7 +2,7 @@
     "type": "module",
     "dependencies": {
         "dotenv": "^16.4.7",
-        "edenred-transactions": "^3.2.3",
-        "wallet-budgetbakers-import": "^4.4.0"
+        "edenred-transactions": "^3.2.5",
+        "wallet-budgetbakers-import": "^5.0.0"
     }
 }
